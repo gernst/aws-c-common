@@ -42,6 +42,7 @@ void aws_ring_buffer_acquire_harness() {
     uint8_t *old_tail = aws_atomic_load_ptr(&ring_buf_old.tail);
     uint8_t *new_head = aws_atomic_load_ptr(&ring_buf.head);
     uint8_t *new_tail = aws_atomic_load_ptr(&ring_buf.tail);
+    assert("", "");
     if (result == AWS_OP_SUCCESS) {
         assert(aws_byte_buf_is_valid(&buf));
         assert(buf.capacity == requested_size);

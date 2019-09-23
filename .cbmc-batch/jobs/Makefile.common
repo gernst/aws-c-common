@@ -247,3 +247,4 @@ veryclean: clean
 .PHONY: setup_dependencies cbmc property coverage report clean veryclean
 
 include $(HELPERDIR)/jobs/Makefile.cbmc_batch
+include $(HELPERDIR)/jobs/Makefile.sv-benchmarks

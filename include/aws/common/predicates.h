@@ -19,7 +19,7 @@
  * Returns whether all bytes of the two byte arrays match.
  */
 #if (AWS_DEEP_CHECKS == 1)
-#    ifdef CBMC
+#    if defined(CBMC) && !defined(CBMC_NO_FORALL)
 /* clang-format off */
 #        define AWS_BYTES_EQ(arr1, arr2, len)                                                                              \
             __CPROVER_forall {                                                                                             \

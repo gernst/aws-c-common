@@ -1,0 +1,7 @@
+#!/usr/bin/fish
+
+for a in (find . -type d)
+    cd $a
+    make sv-benchmark
+    cd /home/ernst/projects/aws-c-common/.cbmc-batch/jobs
+end

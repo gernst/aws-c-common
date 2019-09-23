@@ -52,8 +52,12 @@ AWS_EXTERN_C_END
 #endif
 
 #if defined(CBMC)
+#  if !defined(CBMC_NO_ASSERT_H)
 #    include <assert.h>
 #    define AWS_ASSERT(cond) assert(cond)
+#  else
+#    define AWS_ASSERT(cond) assert(cond)
+#  endif
 #elif defined(DEBUG_BUILD) || __clang_analyzer__
 #    define AWS_ASSERT(cond) AWS_FATAL_ASSERT(cond)
 #else

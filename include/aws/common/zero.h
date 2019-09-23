@@ -40,7 +40,7 @@ AWS_EXTERN_C_BEGIN
 /**
  * Returns whether each byte in the object is zero.
  */
-#ifdef CBMC
+#if defined(CBMC) && !defined(CBMC_NO_FORALL)
 /* clang-format off */
 #    define AWS_IS_ZEROED(object)                                                                                      \
         __CPROVER_forall {                                                                                             \
