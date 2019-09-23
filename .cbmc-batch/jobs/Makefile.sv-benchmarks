@@ -16,4 +16,5 @@ $(C): $(CS)
 
 %.i: %.c
 	@cpp $(INC) $(DEFINES) -o $@ $<
+	@sed 's/9223372036854775808/9223372036854775808U/g' $@ -i # fix constant specification
 	@sed '/^#/ d' $@ -i # get rid of debug statements with lines
