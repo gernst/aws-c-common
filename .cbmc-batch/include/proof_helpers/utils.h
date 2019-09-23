@@ -79,6 +79,15 @@ void assert_byte_cursor_equivalence(
     const struct store_byte_from_buffer *const rhs_byte);
 
 /**
+ * Asserts two aws_ring_buffer structures are equivalent. In order to be considered equivalent,
+ * all member from both structures must match (i.e., head, tail, *allocation, *allocation_end,
+ * and *allocator).
+ */
+void assert_ring_buffer_equivalence(
+    const struct aws_ring_buffer *const lhs,
+    const struct aws_ring_buffer *const rhs);
+
+/**
  * Asserts two aws_byte_cursor structures are equivalent. Prior to using this function,
  * it is necessary to select a non-deterministic byte from the rhs aws_byte_cursor structure
  * (use save_byte_from_array function), so it can properly assert all bytes match.
