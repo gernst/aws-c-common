@@ -19,7 +19,7 @@
 void assert_bytes_match(const uint8_t *const a, const uint8_t *const b, const size_t len) {
     assert(!a == !b);
     if (len > 0 && a != NULL && b != NULL) {
-        size_t i;
+        size_t i = nondet_uint64_t();
         __CPROVER_assume(i < len && len < MAX_MALLOC); /* prevent spurious pointer overflows */
         assert(a[i] == b[i]);
     }
@@ -27,7 +27,7 @@ void assert_bytes_match(const uint8_t *const a, const uint8_t *const b, const si
 
 void assert_all_bytes_are(const uint8_t *const a, const uint8_t c, const size_t len) {
     if (len > 0 && a != NULL) {
-        size_t i;
+        size_t i = nondet_uint64_t();
         __CPROVER_assume(i < len);
         assert(a[i] == c);
     }
